@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">{{ titulo | uppercase }}</span>
+          <form class="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+            <div class="mb-3">
+              <input type="text" class="form-control" formControlName="producto"
+              placeholder="Producto">
+              <div class="text-danger">
+                <span *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched">El campo Producto <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" formControlName="categoria"
+              placeholder="Categoría">
+              <div class="text-danger">
+                <span *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">El campo Categoría <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control" formControlName="ubicacion"
+              placeholder="Ubicación">
+              <div class="text-danger">
+                <span *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched">El campo Ubicación <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="number" class="form-control" formControlName="precio"
+              placeholder="Precio">
+              <div class="text-danger">
+                <span *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">El campo Precio <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button class="btn btn-secondary btn-lg float-start" routerLink="/">VOLVER</button>
+              <button type="submit" [disabled]="productoForm.invalid" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
